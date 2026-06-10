@@ -1,0 +1,19 @@
+{
+  "name": "quinta-sao-luis-server",
+  "version": "1.0.0",
+  "description": "Plataforma de gestao de eventos da Quinta Sao Luis",
+  "type": "module",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

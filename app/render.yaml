@@ -1,0 +1,26 @@
+# render.yaml — deploy automatico no Render (plano gratuito)
+# Este ficheiro esta dentro da pasta app/ do repositorio.
+# Os comandos entram primeiro em app/ porque o Render corre a partir da raiz.
+services:
+  - type: web
+    name: quinta-sao-luis
+    runtime: node
+    plan: free
+    buildCommand: |
+      cd app/frontend && npm install && npm run build && cd ../..
+      rm -rf app/backend/public && cp -r app/frontend/dist app/backend/public
+      cd app/backend && npm install
+    startCommand: cd app/backend && npm start
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      # Para o upload de fotos por ficheiro (ver seccao C do README).
+      # Preencha estes valores nas Settings do servico no Render (Environment).
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_UPLOAD_PRESET
+        sync: false
+# NOTA: o plano gratuito nao tem disco persistente. Os dados (quinta-data.json)
+# ficam no sistema de ficheiros temporario e sao repostos aos valores iniciais
+# sempre que o servico reinicia (inclui o "adormecer" por inatividade).
+# Isto e perfeito para TESTES. Para producao, ver a seccao "Produccao" no README.

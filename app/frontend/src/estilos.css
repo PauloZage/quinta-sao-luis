@@ -1,0 +1,31 @@
+/* estilos.css — globais */
+:root {
+  --leaf: #2F4A2C;
+  --leaf-deep: #1C2119;
+  --terra: #B8623A;
+  --terra-soft: #D98E68;
+  --cream: #EFE7D3;
+  --cream-deep: #E2D6B8;
+  --water: #4A7C7E;
+  --ink: #1C2119;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+}
+.sans { font-family: "Helvetica Neue", Arial, sans-serif; }
+button { cursor: pointer; font-family: inherit; }
+input, textarea, select { font-family: inherit; }
+a { color: inherit; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.fadeUp { animation: fadeUp .6s ease both; }
+.lift { transition: transform .25s ease, box-shadow .25s ease; }
+.lift:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(28,33,25,.18); }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background: var(--leaf); border-radius: 6px; }
+.spin { width: 28px; height: 28px; border: 3px solid var(--cream-deep); border-top-color: var(--terra); border-radius: 50%; animation: girar .8s linear infinite; }
+@keyframes girar { to { transform: rotate(360deg); } }
